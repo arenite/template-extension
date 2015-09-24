@@ -1,0 +1,29 @@
+{
+  "context": {
+    "dependencies": {
+      "default": {
+        "async": [
+          "doT.min.js"
+        ]
+      },
+      "dev": {
+        "sync": [
+          "lib/doT-1.0.1.js"
+        ],
+        "async": [
+          "js/dot.js"
+        ]
+      }
+    },
+    "instances": {
+      "test": {
+        "namespace": "Arenite.Test",
+        "args": [
+          {
+            "ref": "arenite"
+          }
+        ]
+      }
+    }
+  }
+}
