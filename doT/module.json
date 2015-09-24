@@ -4,7 +4,7 @@
       "default": {
         "async": [
           {
-            "url": "doT.min.js",
+            "url": "build/doT.min.js",
             "instances": {
               "doT": "doT"
             }
