@@ -13,7 +13,7 @@
 
   gulp.task('doTdocs', function () {
     return gulp.src('gulpfile.js', {read: false})
-      .pipe(shell('node_modules/docco/bin/docco -o docs doT/**/*.js'));
+      .pipe(shell('node_modules/docco/bin/docco -o docs doT/js/*.js'));
   });
 
   gulp.task('doTmin', function () {
