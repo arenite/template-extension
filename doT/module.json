@@ -3,16 +3,12 @@
     "dependencies": {
       "default": {
         "async": [
-          {
-            "url": "build/doT.min.js"
-          }
+          "build/doT.min.js"
         ]
       },
       "dev": {
         "sync": [
-          {
-            "url": "lib/doT-1.0.1.js"
-          }
+          "lib/doT-1.0.1.js"
         ],
         "async": [
           "js/dot.js"

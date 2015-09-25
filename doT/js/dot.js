@@ -18,6 +18,8 @@ Arenite.Templates = function (arenite, doT) {
     var templateLatch = arenite.async.latch(urls.length, function () {
       if (typeof callback === 'function') {
         callback();
+      } else {
+        arenite.bus.publish('templates-loaded');
       }
     }, "template loader");
     urls.forEach(function (url) {
