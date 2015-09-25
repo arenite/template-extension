@@ -4,20 +4,14 @@
       "default": {
         "async": [
           {
-            "url": "build/doT.min.js",
-            "instances": {
-              "doT": "doT"
-            }
+            "url": "build/doT.min.js"
           }
         ]
       },
       "dev": {
         "sync": [
           {
-            "url": "lib/doT-1.0.1.js",
-            "instances": {
-              "doT": "doT"
-            }
+            "url": "lib/doT-1.0.1.js"
           }
         ],
         "async": [
