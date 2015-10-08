@@ -17,6 +17,7 @@
     },
     "extensions": {
       "templates": {
+        "wait": true,
         "namespace": "Arenite.Templates",
         "args": [
           {
