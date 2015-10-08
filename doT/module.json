@@ -15,7 +15,7 @@
         ]
       }
     },
-    "instances": {
+    "extensions": {
       "templates": {
         "namespace": "Arenite.Templates",
         "args": [
