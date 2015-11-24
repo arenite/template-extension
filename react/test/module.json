@@ -1,0 +1,51 @@
+{
+  "context": {
+    "dependencies": {
+      "dev": {
+        "sync": [
+          "test/test.js"
+        ]
+      }
+    },
+    "extensions": {
+      "templates": {
+        "init": {
+          "wait": true,
+          "func": "add",
+          "args": [
+            {
+              "value": {
+                "es5": "test/test_es5.js",
+                "es6": "test/test_es6.js"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "start": [
+      {
+        "instance": "test",
+        "func": "runTest"
+      }
+    ],
+    "instances": {
+      "test": {
+        "namespace": "Test",
+        "args": [
+          {
+            "ref": "arenite"
+          },
+          {
+            "ref": "react-dom"
+          }
+        ]
+      }
+    }
+  },
+  "imports": {
+    "react": {
+      "module": "./"
+    }
+  }
+}

@@ -32,9 +32,25 @@
       });
   });
 
-  gulp.task('default', ['doTmin', 'doTdocs']);
+  gulp.task('reactmin', function () {
+    arenitesrc({
+        mode: 'dev',
+        base: 'react/'
+      },
+      {
+        export: 'arenite',
+        imports: {module: {module: ''}}
+      }, function (src) {
+        src
+          .pipe(concat('react.min.js'))
+          .pipe(uglify({preserveComments: 'some'}))
+          .pipe(gulp.dest('react/' + build));
+      });
+  });
+
+  gulp.task('default', ['doTmin', 'doTdocs', 'reactmin']);
 
   gulp.task('watch', function () {
-    gulp.watch('js/**/*.js', ['doTmin', 'doTdocs']);
+    gulp.watch('js/**/*.js', ['doTmin', 'doTdocs', 'reactmin']);
   });
 }());

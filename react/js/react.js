@@ -1,29 +1,23 @@
 /* global Arenite:true */
-Arenite.Templates = function (arenite, doT) {
+/* jshint evil:true */
+Arenite.Templates = function (arenite, browser, react) {
   var _templates = {};
 
   var _addText = function (name, text) {
-    _templates[name] = doT.template(text);
+    _templates[name] = eval('(function(){var module={};' + browser.transform(text).code + ';return module.exports;})()');
   };
 
   var _add = function (urls, callback) {
-    var templateLatch = arenite.async.latch(urls.length, function () {
+    var templateLatch = arenite.async.latch(arenite.object.keys(urls).length, function () {
       if (typeof callback === 'function') {
         callback();
       } else {
         arenite.bus.publish('templates-loaded');
       }
     }, "template loader");
-    urls.forEach(function (url) {
-      arenite.loader.loadResource(url, function (template) {
-        var templateContainer = document.createElement('div');
-        templateContainer.innerHTML = template.responseText;
-        document.body.appendChild(templateContainer);
-        var scriptTags = templateContainer.getElementsByTagName('script');
-        for (var i = 0; i < scriptTags.length; i++) {
-          _addText(scriptTags[i].id, scriptTags[i].innerHTML);
-        }
-        document.body.removeChild(templateContainer);
+    arenite.object.forEach(urls, function (entry, name) {
+      arenite.loader.loadResource(entry, function (template) {
+        _addText(name, template.responseText);
         templateLatch.countDown();
       }, function (e) {
         window.console.error(e);
@@ -39,7 +33,7 @@ Arenite.Templates = function (arenite, doT) {
     if (!_templates[name]) {
       throw "Unable to find template '" + name + "'";
     }
-    return _templates[name](arg);
+    return react.createElement(_templates[name], arg);
   };
 
   return {

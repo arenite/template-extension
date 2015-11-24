@@ -1,0 +1,22 @@
+<html>
+<head>
+  <script type="application/javascript" src="//rawgit.com/arenite/arenite/master/build/arenite.js"></script>
+</head>
+<body>
+<div id="es5_example"></div>
+<div id="es6_example"></div>
+<script>
+  Arenite({
+    expose: 'arenite',
+    debug: function (arenite) {
+      return !!arenite.url.query().debug;
+    },
+    imports: {
+      test: {
+        module: 'test'
+      }
+    }
+  });
+</script>
+</body>
+</html>

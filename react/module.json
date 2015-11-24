@@ -3,12 +3,14 @@
     "dependencies": {
       "default": {
         "async": [
-          "build/doT.min.js"
+          "build/react.min.js"
         ]
       },
       "dev": {
         "sync": [
-          "//cdn.rawgit.com/olado/doT/1.0.1/doT.min.js"
+          "//cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js",
+          "//cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js",
+          "//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"
         ],
         "async": [
           "js/react.js"
@@ -23,7 +25,10 @@
             "ref": "arenite"
           },
           {
-            "ref": "doT"
+            "ref": "browser"
+          },
+          {
+            "ref": "react"
           }
         ]
       }
