@@ -1,4 +1,4 @@
-const React = require('react');
+import React from 'react';
 
 function countTo(n) {
   var a = [];
@@ -9,6 +9,11 @@ function countTo(n) {
 }
 
 class Index extends React.Component {
+
+  componentWillReceiveProps(props){
+    console.log(props);
+  }
+
   render() {
     console.log(this.props);
     return (

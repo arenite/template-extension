@@ -11,7 +11,7 @@
           "//cdn.rawgit.com/olado/doT/1.0.1/doT.min.js"
         ],
         "async": [
-          "js/react.js"
+          "js/dot.js"
         ]
       }
     },

@@ -42,10 +42,22 @@ Arenite.Templates = function (arenite, doT) {
     return _templates[name](arg);
   };
 
+  var _applyTo = function (name, arg, target) {
+    target.innerHTML = _apply(name, arg);
+  };
+
+  var _append = function (name, arg, target) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = _apply(name, arg);
+    target.appendChild(tmp.childNodes[0]);
+  };
+
   return {
     add: _add,
     addText: _addText,
     addCompiled: _addCompiled,
-    apply: _apply
+    apply: _apply,
+    applyTo: _applyTo,
+    append: _append
   };
 };

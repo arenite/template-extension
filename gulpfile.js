@@ -16,6 +16,11 @@
       .pipe(shell('node_modules/docco/bin/docco -o docs doT/js/*.js'));
   });
 
+  gulp.task('reactdocs', function () {
+    return gulp.src('gulpfile.js', {read: false})
+      .pipe(shell('node_modules/docco/bin/docco -o docs react/js/*.js'));
+  });
+
   gulp.task('doTmin', function () {
     arenitesrc({
         mode: 'dev',
@@ -48,9 +53,9 @@
       });
   });
 
-  gulp.task('default', ['doTmin', 'doTdocs', 'reactmin']);
+  gulp.task('default', ['doTmin', 'doTdocs', 'reactmin', 'reactdocs']);
 
   gulp.task('watch', function () {
-    gulp.watch('js/**/*.js', ['doTmin', 'doTdocs', 'reactmin']);
+    gulp.watch('js/**/*.js', ['doTmin', 'doTdocs', 'reactmin', 'reactdocs']);
   });
 }());

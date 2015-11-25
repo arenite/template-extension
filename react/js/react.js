@@ -1,6 +1,6 @@
 /* global Arenite:true */
 /* jshint evil:true */
-Arenite.Templates = function (arenite, browser, react) {
+Arenite.Templates = function (arenite, browser, react, reactDOM) {
   var _templates = {};
 
   var _addText = function (name, text) {
@@ -36,10 +36,22 @@ Arenite.Templates = function (arenite, browser, react) {
     return react.createElement(_templates[name], arg);
   };
 
+  var _applyTo = function (name, arg, target) {
+    reactDOM.render(_apply(name, arg), target);
+  };
+
+  var _append = function (name, arg, target) {
+    var tmp = document.createElement('div');
+    target.appendChild(tmp);
+    reactDOM.render(_apply(name, arg), tmp);
+  };
+
   return {
     add: _add,
     addText: _addText,
     addCompiled: _addCompiled,
-    apply: _apply
+    apply: _apply,
+    applyTo: _applyTo,
+    append: _append
   };
 };
