@@ -21,6 +21,11 @@
       .pipe(shell('node_modules/docco/bin/docco -o docs react/js/*.js'));
   });
 
+  gulp.task('pugdocs', function () {
+    return gulp.src('gulpfile.js', {read: false})
+      .pipe(shell('node_modules/docco/bin/docco -o docs pug/js/*.js'));
+  });
+
   gulp.task('doTmin', function () {
     arenitesrc({
         mode: 'dev',
@@ -53,9 +58,25 @@
       });
   });
 
-  gulp.task('default', ['doTmin', 'doTdocs', 'reactmin', 'reactdocs']);
+  gulp.task('pugmin', function () {
+    arenitesrc({
+        mode: 'dev',
+        base: 'pug/'
+      },
+      {
+        export: 'arenite',
+        imports: {module: {module: ''}}
+      }, function (src) {
+        src
+          .pipe(concat('pug.min.js'))
+          .pipe(uglify({preserveComments: 'some'}))
+          .pipe(gulp.dest('pug/' + build));
+      });
+  });
+
+  gulp.task('default', ['doTmin', 'doTdocs', 'reactmin', 'reactdocs', 'pugmin', 'pugdocs']);
 
   gulp.task('watch', function () {
-    gulp.watch('js/**/*.js', ['doTmin', 'doTdocs', 'reactmin', 'reactdocs']);
+    gulp.watch(['doT/**/*.js','react/**/*.js','pug/**/*.js'], ['doTmin', 'doTdocs', 'reactmin', 'reactdocs', 'pugmin', 'pugdocs']);
   });
 }());

@@ -1,6 +1,6 @@
 {
   "name": "arenite-template-extensions",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Arenite templating extensions",
   "repository": "git://github.com/arenite/template-extension",
   "author": {
@@ -30,6 +30,6 @@
     "gulp-jshint": "^1.9.0",
     "gulp-concat": "^2.4.2",
     "gulp-shell": "^0.2.11",
-    "docco": "^0.7.0"
+    "docco": "^0.8.0"
   }
 }

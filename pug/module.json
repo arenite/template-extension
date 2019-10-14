@@ -1,0 +1,28 @@
+{
+  "context": {
+    "dependencies": {
+      "default": {
+        "async": [
+          "build/pug.min.js"
+        ]
+      },
+      "dev": {
+        "sync": [
+        ],
+        "async": [
+          "js/pug.js"
+        ]
+      }
+    },
+    "extensions": {
+      "templates": {
+        "namespace": "Arenite.Templates",
+        "args": [
+          {
+            "ref": "arenite"
+          }
+        ]
+      }
+    }
+  }
+}

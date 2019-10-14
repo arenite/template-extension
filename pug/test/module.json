@@ -1,0 +1,47 @@
+{
+  "context": {
+    "dependencies": {
+      "dev": {
+        "sync": [
+          "test/test.js"
+        ]
+      }
+    },
+    "extensions": {
+      "templates": {
+        "init": {
+          "func": "addText",
+          "args": [
+            {
+              "value": "sample"
+            },
+            {
+              "value": "<span>{{=it}}</span>"
+            }
+          ]
+        }
+      }
+    },
+    "start": [
+      {
+        "instance": "test",
+        "func": "runTest"
+      }
+    ],
+    "instances": {
+      "test": {
+        "namespace": "Test",
+        "args": [
+          {
+            "ref": "arenite"
+          }
+        ]
+      }
+    }
+  },
+  "imports": {
+    "doT": {
+      "module": "./"
+    }
+  }
+}
