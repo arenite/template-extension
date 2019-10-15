@@ -17,7 +17,7 @@ Arenite.Templates = function (arenite) {
     }, "template loader");
     urls.forEach(function (url) {
       arenite.loader.loadResource(url, function (template) {
-        var config = eval(template);
+        var config = eval(template.responseText);
         pug = config.pug;
         _templates = config.templates;
         templateLatch.countDown();
